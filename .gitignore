@@ -1,0 +1,36 @@
+# Go
+/bin/
+/pkg/
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+.coverage
+
+# Go modules
+/vendor/
+
+# Svelte / Node
+/node_modules/
+/.svelte-kit/
+/.vite/
+/dist/
+/public/build/
+
+# Environment files
+.env
+.env.*.local
+
+# MariaDB / local database data
+/mysql_data/
+/mariadb_data/
+/db_data/
+*.pid
+*.sock
+*.err
+
+# OS files
+.DS_Store
+Thumbs.db
