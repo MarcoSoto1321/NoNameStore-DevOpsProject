@@ -1,36 +1,62 @@
-# Go
-/bin/
-/pkg/
-*.exe
-*.dll
-*.so
-*.dylib
-*.test
-*.out
-.coverage
-
-# Go modules
-/vendor/
-
-# Svelte / Node
-/node_modules/
-/.svelte-kit/
-/.vite/
-/dist/
-/public/build/
-
-# Environment files
-.env
-.env.*.local
-
-# MariaDB / local database data
-/mysql_data/
-/mariadb_data/
-/db_data/
-*.pid
-*.sock
-*.err
-
-# OS files
+# ====================================================================
+# CONFIGURACIÓN GENERAL (SISTEMA OPERATIVO)
+# ====================================================================
 .DS_Store
-Thumbs.db
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+thumbs.db
+desktop.ini
+
+# ====================================================================
+# BACKEND (GO)
+# ====================================================================
+# Ignorar binarios compilados locales (pesados e inútiles en GitHub)
+backend/cmd/api/api
+backend/cmd/api/main
+backend/*.exe
+backend/*.exe~
+backend/*.dll
+backend/*.so
+backend/*.dylib
+
+# Variables de entorno secretas (Cumple el principio Stateless)
+backend/.env
+backend/.env.local
+
+# ====================================================================
+# FRONTEND (SVELTE + VITE)
+# ====================================================================
+# Ignorar la carpeta gigante de dependencias de pnpm
+frontend/node_modules/
+
+# Caches e históricos de desarrollo
+frontend/.svelte-kit/
+frontend/.vercel/
+frontend/.netlify/
+frontend/dist/
+
+# Ignorar variables locales que contienen tokens o IPs privadas
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+!frontend/.env.example
+
+# Logs de error de pnpm o npm
+*.log
+pnpm-debug.log*
+
+# ====================================================================
+# CAPA DE DATOS (DATA LOCAL)
+# ====================================================================
+# Si decides persistir datos de MariaDB localmente en tu disco
+database/data/
+
+# Variables de entorno secretas (Globales)
+**/.env
+**/.env.local
+**/.env.*.local
+
+# Permitir explícitamente las plantillas de ejemplo
+!**/ .env.example
